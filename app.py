@@ -72,6 +72,7 @@ def listen():
             if is_user_message(x):
                 text = x['message']['text']
                 sender_id = x['sender']['id']
-                respond(sender_id, text)
+                # respond(sender_id, text)
+                return "hello".json()
 
         return "ok"

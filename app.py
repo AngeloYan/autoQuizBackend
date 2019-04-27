@@ -9,11 +9,12 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route("/",methods=["GET","POST"])
 @cross_origin()
 def page():
-    response.headers.add('Access-Control-Allow-Origin','*')
+    # response.headers.add('Access-Control-Allow-Origin','*')
     if request.method == "POST":
         x = request.get_json()
         topic = json.loads(x)["topic"]
         #q = getQuestions(topic)
     else:
         topic = "GET"
+    topic.headers.add('Access-Control-Allow-Origin','*')
     return topic

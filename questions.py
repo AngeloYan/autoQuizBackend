@@ -14,6 +14,7 @@ def makeQ(topic):
     question = ""
     hold = {}
     ia.update(person,info='filmography')
+    # find latest movie
     if 'actor' in person.get('filmography')[0]:
         title = 'actor'
     else:
@@ -26,10 +27,15 @@ def makeQ(topic):
     print(person['name'])
     question = "What is the latest movie that " + person['name'] + " has acted in?"
     questions.append([question,latestMovie])
+    
+    # find a random movie and get the plot
+
+    question = "What movie acted by " + person['name'] + " has the following plot?"
+    print(person.get('filmography'))
     random.shuffle(questions)
     for i,j in enumerate(questions):
         hold[str(i)] = j
     return hold
 
-##topic = sys.argv[1]
-##print(makeQ(topic))
+#topic = sys.argv[1]
+#print(makeQ(topic))

@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import json
 import binascii
+import questions.py
 
 
 app = Flask(__name__)
@@ -18,9 +19,9 @@ def page():
         print(x)
         topic = json.loads(x)["topic"]
         print(topic)
-        #q = getQuestions(topic)
+        q = makeQ(topic)
     #else:
         #topic = "GET"
     #topic.headers.add('Access-Control-Allow-Origin','*')
     #return topic
-    return 'ok'
+    return q

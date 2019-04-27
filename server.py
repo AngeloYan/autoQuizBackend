@@ -1,27 +1,22 @@
 #!/usr/bin/py
 
-import requests
+from imdb import IMDb,IMDbError
 import sys
-import re
 
-def cleanhtml(raw_html):
-    cleanr = re.compile('<.*?>')
-    cleantext = re.sub(cleanr, '', raw_html)
-    return cleantext
+topic = sys.argv[1]
+ia = IMDb()
+people = ia.search_person(topic)
+person = people[0]
+pid = person.personID
+ia.update(person,info='filmography')
+if 'actor' in person.get('filmography')[0]:
+    title = 'actor'
+else:
+    title = 'actress'
+for i in person.get('filmography')[0][title]:
+    if 'status' in i.keys():
+        continue
+    latestMovie = i['title']
+    break
 
-if len(sys.argv) < 2:
-    exit("Requires 1 argument")
-url = "https://en.wikipedia.org/wiki/" + sys.argv[1]
-website_url = requests.get(url).text
-
-from bs4 import BeautifulSoup
-soup = BeautifulSoup(website_url,'lxml')
-#print(soup.prettify())
-
-My_table = soup.find('table',{'class':'infobox'})
-lines = My_table.findAll('th')
-
-for i in lines:
-    print(cleanhtml(str(i)))
-
-
+print(latestMovie)

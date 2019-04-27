@@ -35,6 +35,7 @@ def is_user_message(message):
 
 def send_message(recipient_id, text):
     """Send a response to Facebook"""
+    print("sent")
     payload = {
         'message': {
             'text': text
@@ -60,6 +61,7 @@ def send_message(recipient_id, text):
 
 @app.route("/webhook")
 def listen():
+    print("listening")
     """This is the main function flask uses to 
     listen at the `/webhook` endpoint"""
     if request.method == 'GET':

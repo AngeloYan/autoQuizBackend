@@ -17,6 +17,7 @@ def page():
         x = request.get_data()
         print(x)
         topic = json.loads(x)["topic"]
+        print(topic)
         #q = getQuestions(topic)
     #else:
         #topic = "GET"

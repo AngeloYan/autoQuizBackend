@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 @app.route("/",methods=["GET","POST"])
 def page():
+    response.headers.add('Access-Control-Allow-Origin','*')
     if request.method == "POST":
         x = request.get_json()
         topic = json.loads(x)["topic"]

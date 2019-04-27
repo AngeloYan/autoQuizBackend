@@ -14,9 +14,10 @@ def page():
         #x = request.get_json()
         x = request.form.get("data")
         print(x)
-        topic = json.loads(x)["topic"]
+        #topic = json.loads(x)["topic"]
         #q = getQuestions(topic)
-    else:
-        topic = "GET"
-    topic.headers.add('Access-Control-Allow-Origin','*')
-    return topic
+    #else:
+        #topic = "GET"
+    #topic.headers.add('Access-Control-Allow-Origin','*')
+    #return topic
+    return x

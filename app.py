@@ -12,7 +12,7 @@ def page():
     # response.headers.add('Access-Control-Allow-Origin','*')
     if request.method == "POST":
         #x = request.get_json()
-        x = request.form.get("data")
+        x = request.args
         print(x)
         topic = json.loads(x)["topic"]
         #q = getQuestions(topic)

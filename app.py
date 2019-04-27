@@ -9,4 +9,6 @@ def page():
         x = request.get_json()
         topic = json.loads(x)["topic"]
         #q = getQuestions(topic)
+    else:
+        topic = "GET"
     return topic

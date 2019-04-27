@@ -3,7 +3,7 @@
 from imdb import IMDb,IMDbError
 import sys
 import random
-
+import json
 
 def makeQ(topic):
     ia = IMDb()
@@ -35,7 +35,7 @@ def makeQ(topic):
     random.shuffle(questions)
     for i,j in enumerate(questions):
         hold[str(i)] = j
-    return hold
+    return json.dumps(hold)
 
 #topic = sys.argv[1]
 #print(makeQ(topic))

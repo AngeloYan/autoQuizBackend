@@ -36,7 +36,7 @@ def makeQ(topic):
         break
     question = "What is the latest movie that " + person['name'] + " has acted in?"
     answers = []
-    answers.append(latestMovie)
+    answers.append(latestMovie.strip())
     while len(answers) < 4:
         x = random.choice(films)['title']
         if x not in answers:
@@ -50,7 +50,7 @@ def makeQ(topic):
     ia.update(movie,info='plot')
     question = "What is the movie starring " + person['name'] + " featuring this plot: " + movie['plot'][0].split('.')[0]
     answers = []
-    answers.append(movie['title'])
+    answers.append(movie['title'].strip())
     while len(answers) < 4:
         x = random.choice(films)['title']
         if x not in answers:
@@ -74,7 +74,7 @@ def makeQ(topic):
         country = m[-1].split(':')[0].strip()
         question = "Which one of these countries are a filming location for " + person['name'] + "'s film " + movie['title'] + "?"
         answers = []
-        answers.append(country)
+        answers.append(country.strip())
         while len(answers) < 4:
             x = random.choice(countries)
             if x not in answers:

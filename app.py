@@ -1,6 +1,8 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import json
+import binascii
+import questions.py
 
 
 app = Flask(__name__)
@@ -11,10 +13,15 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def page():
     # response.headers.add('Access-Control-Allow-Origin','*')
     if request.method == "POST":
-        x = request.get_json()
+        #x = request.get_json()
+        #x = request.form.get("topic")
+        x = request.get_data()
+        print(x)
         topic = json.loads(x)["topic"]
-        #q = getQuestions(topic)
-    else:
-        topic = "GET"
-    topic.headers.add('Access-Control-Allow-Origin','*')
-    return topic
+        print(topic)
+        q = makeQ(topic)
+    #else:
+        #topic = "GET"
+    #topic.headers.add('Access-Control-Allow-Origin','*')
+    #return topic
+    return q

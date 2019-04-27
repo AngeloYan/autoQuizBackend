@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import json
+import binascii
 
 
 app = Flask(__name__)
@@ -15,7 +16,7 @@ def page():
         #x = request.form.get("topic")
         x = request.get_data()
         print(x)
-        #topic = json.loads(x)["topic"]
+        topic = json.loads(x)["topic"].
         #q = getQuestions(topic)
     #else:
         #topic = "GET"

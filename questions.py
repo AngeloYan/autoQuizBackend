@@ -40,7 +40,7 @@ def makeQ(topic):
     while len(answers) < 4:
         x = random.choice(films)['title']
         if x not in answers:
-            answers.append(x)
+            answers.append(x.strip())
     for i in range(4):
         answers[i] = re.sub(r"\(.*\)","",answers[i])
     questions.append([question,answers])
@@ -54,7 +54,7 @@ def makeQ(topic):
     while len(answers) < 4:
         x = random.choice(films)['title']
         if x not in answers:
-            answers.append(x)
+            answers.append(x.strip())
     for i in range(4):
         answers[i] = re.sub(r"\(.*\)","",answers[i])
     questions.append([question,answers])
@@ -78,7 +78,7 @@ def makeQ(topic):
         while len(answers) < 4:
             x = random.choice(countries)
             if x not in answers:
-                answers.append(x)
+                answers.append(x.strip())
         for i in range(4):
             answers[i] = re.sub(r"\(.*\)","",answers[i]).strip(')')
         questions.append([question,answers])

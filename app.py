@@ -20,4 +20,4 @@ def page():
         #topic = "GET"
     #topic.headers.add('Access-Control-Allow-Origin','*')
     #return topic
-    return x
+    return 'ok'
